@@ -1,0 +1,15 @@
+---
+
+
+- name: create home dir
+  file: dest="{{ we_userhome }}" state=directory mode=0755  owner="{{ we_username }}" group="{{ we_username }}"
+
+- name: Create user "{{we_username}}"
+  user: name="{{we_username}}" state=present
+
+- name: Add user in groups
+  user: name="{{we_username}}" state=present groups="{{we_usergroups}}"
+  when: we_usergroups
+
+- name: set user_home if needed
+  user: name="{{we_username}}" state=present home="{{ we_userhome }}"

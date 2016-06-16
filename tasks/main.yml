@@ -1,0 +1,4 @@
+---
+# tasks file for working_env
+- include: check_vars.yml
+- include: create_env.yml

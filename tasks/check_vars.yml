@@ -1,0 +1,6 @@
+---
+- name: check we_username variable
+  fail: msg="Variable '{{ we_username }}' is not defined" 
+  when: we_username is not defined
+  tags: check
+
