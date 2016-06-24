@@ -1,9 +1,9 @@
 ---
 # defaults file for working_env
-we_userhome:false
+we_userhome: false
 #we_userhome: "/home/blabla"
 
-we_usergroups:false
+we_usergroups: false
 #we_usergroups: "[group1, group2]"
 
 
