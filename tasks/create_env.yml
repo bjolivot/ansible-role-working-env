@@ -6,10 +6,12 @@
 
 - name: Add user in groups
   user: name="{{we_username}}" state=present groups="{{we_usergroups}}"
-  when: we_usergroups
+  when: we_usergroups != false
 
 - name: chown homedir
   file: dest="{{ we_userhome }}" state=directory mode=0755  owner="{{ we_username }}" group="{{ we_username }}"
-
+  when: we_userhome != false
+  
 - name: set user_home if needed
   user: name="{{we_username}}" state=present home="{{ we_userhome }}"
+  when: we_userhome != false
