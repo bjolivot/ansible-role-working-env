@@ -2,6 +2,13 @@ Working ENV
 ===========
 
 Init working environnement (user creation, directory )
+These directories will be created :
+ /home/{{we_username}}/
+   etc
+   jar
+   log
+   opt
+   www
 
 
 Role Variables
