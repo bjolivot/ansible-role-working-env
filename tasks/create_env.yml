@@ -1,4 +1,7 @@
 ---
+- name: Create group {{ we_username }}
+  group: name=oscaro state=present
+
 - name: Create user "{{we_username}}"
   user: name="{{we_username}}" state=present
 
@@ -22,3 +25,6 @@
     - log
     - opt
     - www
+
+- name: change users umask
+  lineinfile: dest=/home/{{ we_userhome }}/.profile regexp=^umask\\s+\\d+ line='umask 0002'
