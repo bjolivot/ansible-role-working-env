@@ -27,4 +27,4 @@
     - www
 
 - name: change users umask
-  lineinfile: dest=/home/{{ we_userhome }}/.profile regexp=^umask\\s+\\d+ line='umask 0002'
+  lineinfile: dest=/home/{{ we_username }}/.profile regexp=^umask\\s+\\d+ line='umask 0002'
