@@ -3,7 +3,7 @@ Working ENV
 
 Init working environnement (user creation, directory )
 These directories will be created :
- /home/{{we_username}}/
+ {{we_userhome}}/
    etc
    jar
    log
@@ -15,8 +15,11 @@ Role Variables
 --------------
 
 we_username: User Name  (required)
-we_usergroups: User group list
+we_working_root_dir: root directory for working files (required)
+
 we_userhome: User Home directory (optional)
+we_usergroups: User group list
+
 
 
 Default Values
