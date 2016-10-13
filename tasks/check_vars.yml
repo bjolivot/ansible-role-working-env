@@ -1,8 +1,10 @@
 ---
-- name: check we_username variable
-  fail: msg="Variable '{{ we_username }}' is not defined" 
-  when: we_username is not defined
-  tags: check
+
+- fail: msg="Variable '{{ item }}' is not defined"
+  when: item not in hostvars[inventory_hostname]
+  with_items: 
+    - we_username
+    - we_working_root_dir
 
 - name: check we_working_root_dir variable
   fail: msg="Variable '{{ we_working_root_dir }}' is not defined" 
