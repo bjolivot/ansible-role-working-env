@@ -1,16 +1,12 @@
 ---
-- name: Create group {{ we_username }}
-  group: name=oscaro state=present
+- name: Create group "{{ we_group }}"
+  group: name="{{ we_group }}" state=present
 
 - name: Create user "{{we_username}}"
-  user: name="{{we_username}}" state=present
-
-- name: Add user in groups
-  user: name="{{we_username}}" state=present groups="{{we_usergroups}}"
-  when: we_usergroups != false
+  user: name="{{we_username}}" state=present group="{{ we_group}}"
 
 - name: create working directories
-  file: dest="{{ we_working_root_dir }}/{{ item }}" state=directory mode=0775  owner="{{ we_username }}" group="{{ we_username }}"
+  file: dest="{{ we_working_root_dir }}/{{ item }}" state=directory mode=0775 group="{{ we_group }}"
   with_items: 
     - etc
     - jar
@@ -19,4 +15,4 @@
     - www
 
 - name: change users umask
-  lineinfile: dest=/home/{{ we_username }}/.profile regexp=^umask\\s+\\d+ line='umask 0002'
+  lineinfile: dest="{{ we_userhome }}/.profile" regexp=^umask\\s+\\d+ line='umask {{ we_umask }}'

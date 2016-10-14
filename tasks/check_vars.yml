@@ -1,10 +1,11 @@
 ---
 
 - fail: msg="Variable '{{ item }}' is not defined"
-  when: item not in hostvars[inventory_hostname]
+  when: item not in vars
   with_items: 
     - we_username
     - we_working_root_dir
+    - we_group
 
 - name: check we_working_root_dir variable
   fail: msg="Variable '{{ we_working_root_dir }}' is not defined" 
