@@ -1,5 +1,7 @@
 ---
 
+we_username: oscaro
+we_working_root_dir: /oscaro
 we_userhome: "/home/{{we_username}}"
 we_group: oscaro
 we_umask: "0002"
