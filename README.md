@@ -1,3 +1,6 @@
+
+[![Build Status](https://travis-ci.org/bjolivot/ansible-role-working-env.svg?branch=master)](https://travis-ci.org/bjolivot/ansible-role-working-env)
+
 Working ENV
 ===========
 
