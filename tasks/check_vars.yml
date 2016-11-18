@@ -7,8 +7,3 @@
     - we_working_root_dir
     - we_group
 
-- name: check we_working_root_dir variable
-  fail: msg="Variable '{{ we_working_root_dir }}' is not defined" 
-  when: we_working_root_dir is not defined
-  tags: check
-

@@ -6,7 +6,7 @@ Working ENV
 
 Init working environnement (user creation, directory )
 These directories will be created :
- {{we_userhome}}/
+ {{we_working_root_dir}}/
    etc
    jar
    log
@@ -14,29 +14,28 @@ These directories will be created :
    www
 
 
-Role Variables
---------------
-
-we_username: User Name  (required)
-we_working_root_dir: root directory for working files (required)
-
-we_userhome: User Home directory (optional)
-we_usergroups: User group list
-
-
 
 Default Values
 --------------
-we_usergroups:false  
-we_userhome:false
+we_username: oscaro                     # user name
+we_working_root_dir: /oscaro            # working root directory
+we_userhome: "/home/{{we_username}}"    # User Home path
+we_group: oscaro                        # User Group
+we_umask: "0002"                        # User umask
 
 
 Example Playbook
 ----------------
 
+Default use: 
     - hosts: server
       roles:
-         - { role: working_env, we_username: "myuser", we_usergroups: "[group1, group2]", we_userhome: "/opt/work" }
+         - working_env
+
+Other use : 
+    - hosts: server
+      roles:
+         - { role: working_env, we_username: "myuser", we_group: "mygroup", we_userhome: "/opt/work" }
 
 
 License

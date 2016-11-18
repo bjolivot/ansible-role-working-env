@@ -13,6 +13,7 @@
     - log
     - opt
     - www
+    - ansible
 
 - name: change users umask
   lineinfile: dest="{{ we_userhome }}/.profile" regexp=^umask\\s+\\d+ line='umask {{ we_umask }}'
