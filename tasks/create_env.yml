@@ -14,6 +14,7 @@
     - opt
     - www
     - ansible
+    - jobs
 
 - name: change users umask
   lineinfile: dest="{{ we_userhome }}/.profile" regexp=^umask\\s+\\d+ line='umask {{ we_umask }}'
